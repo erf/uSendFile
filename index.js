@@ -8,7 +8,7 @@ function sendFile(filePath, res) {
 	});
 	console.log(`send file -> ${filePath}`)
 
-	const encoding = isBinaryPath(filePath) ? 'binary' : 'utf8';
+	const encoding = isBinaryPath(filePath) ? undefined : 'utf8';
 
 	fs.readFile(filePath, encoding).then(data => {
 		if (!res.aborted) {
