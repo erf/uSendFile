@@ -6,8 +6,8 @@ A minimal static file handler for [uWebSocket.js](https://github.com/uNetworking
 
 ```
 // index.html
-app.get('/', async (res, req) => sendFile('./public/index.html', res))
+app.get('/', (res, req) => sendFile('./public/index.html', res))
 
 // static files
-app.get('/*', async (res, req) => sendFile(`./public${req.getUrl()}`, res))
+app.get('/*', (res, req) => sendFile(`./public${req.getUrl()}`, res))
 ```
