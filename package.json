@@ -1,6 +1,6 @@
 {
   "name": "usendfile",
-  "version": "1.0.0",
+  "version": "1.0.0+1",
   "description": "minimal static file handler for uWebSocket.js",
   "main": "index.js",
   "type": "module",
