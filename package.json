@@ -1,0 +1,25 @@
+{
+  "name": "usendfile",
+  "version": "1.0.0",
+  "description": "minimal static file handler for uWebSocket.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erf/uSendFile.git"
+  },
+  "keywords": [
+    "sendFile",
+    "static",
+    "uWebSocket",
+    "fileHandler"
+  ],
+  "author": "Erlend Lind Madsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erf/uSendFile/issues"
+  },
+  "homepage": "https://github.com/erf/uSendFile#README.md"
+}
