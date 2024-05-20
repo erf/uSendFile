@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import mime from 'mime-types';
 
-export function(filePath, res) {
+export function sendFile(filePath, res) {
 	res.onAborted(() => {
 		res.aborted = true;
 	});
