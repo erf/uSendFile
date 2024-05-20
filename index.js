@@ -1,12 +1,16 @@
 import fs from 'node:fs/promises'
 import mime from 'mime-types'
+import isBinaryPath from 'is-binary-path';
 
 function sendFile(filePath, res) {
 	res.onAborted(() => {
 		res.aborted = true;
 	});
 	console.log(`send file -> ${filePath}`)
-	fs.readFile(filePath).then(data => {
+
+	const encoding = isBinaryPath(filePath) ? 'binary' : 'utf8';
+
+	fs.readFile(filePath, encoding).then(data => {
 		if (!res.aborted) {
 			res.cork(() => {
 				res.writeStatus('200')

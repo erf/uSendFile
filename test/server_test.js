@@ -8,15 +8,21 @@ test('Run server and do a ping request', (t, done) => {
   const port = 3000
   const app = uWS.App()
 
-  app.get('/', (res, req) => sendFile('./test/testfile.txt', res))
+  app.get('/text', (res, req) => sendFile('./test/files/testfile.txt', res))
+
+  app.get('/binary', (res, req) => sendFile('./test/files/favicon.ico', res))
 
   app.listen(port, async (listenSocket) => {
-    const req = new Request(`http://localhost:${port}/`)
-    const res = await fetch(req)
+    const res = await fetch(new Request(`http://localhost:${port}/text`))
     const responseText = await res.text()
     assert.strictEqual(res.status, 200)
     assert.strictEqual(responseText, 'hello world')
-    console.log('assert ok')
+    console.log('assert text file OK')
+
+    const res2 = await fetch(new Request(`http://localhost:${port}/binary`))
+    assert.strictEqual(res2.status, 200)
+    console.log('assert binary file OK')
+
     done()
   })
 })
