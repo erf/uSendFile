@@ -1,6 +1,6 @@
 # uSendFile
 
-A minimal static file handler for [uWebSocket](https://github.com/uNetworking/uWebSockets.js)
+A minimal static file handler for [uWebSocket.js](https://github.com/uNetworking/uWebSockets.js)
 
 ## Usage
 
