@@ -2,6 +2,8 @@
 
 A minimal static file handler for [uWebSocket.js](https://github.com/uNetworking/uWebSockets.js)
 
+> NOTE: Only works for small files. Apps in production should use nginx or similar.
+
 ## Usage
 
 ```
