@@ -1,5 +1,5 @@
-import fs from 'node:fs/promises';
-import mime from 'mime-types';
+import fs from 'node:fs/promises'
+import mime from 'mime-types'
 
 function sendFile(filePath, res) {
 	res.onAborted(() => {
