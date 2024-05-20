@@ -1,13 +1,12 @@
 import fs from 'node:fs/promises';
 import mime from 'mime-types';
 
-const sendFile = async (filePath, res) => {
+const sendFile = (filePath, res) => {
 	res.onAborted(() => {
 		res.aborted = true;
 	});
-	try {
-		console.log(`send file -> ${filePath}`)
-		const data = await fs.readFile(filePath)
+	console.log(`send file -> ${filePath}`)
+	fs.readFile(filePath).then(data => {
 		if (!res.aborted) {
 			res.cork(() => {
 				res.writeStatus('200')
@@ -15,7 +14,7 @@ const sendFile = async (filePath, res) => {
 				res.end(data)
 			})
 		}
-	} catch (err) {
+	}).catch(err => {
 		console.log(err);
 		if (!res.aborted) {
 			res.cork(() => {
@@ -23,7 +22,7 @@ const sendFile = async (filePath, res) => {
 				res.end()
 			})
 		}
-	}
+	})
 }
 
 export { sendFile }
