@@ -35,3 +35,9 @@ app.get('/', (res, req) => sendFile('./public/index.html', res))
 // static files
 app.get('/*', (res, req) => sendFile(`./public${req.getUrl()}`, res))
 ```
+
+## Test
+
+```
+node --test
+```

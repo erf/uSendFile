@@ -17,8 +17,8 @@ test('do a simple request and assert 200', (t, done) => {
     const responseText = await res.text()
     assert.strictEqual(res.status, 200)
     assert.strictEqual(responseText, 'hello world')
-    console.log('assert text file OK')
     app.close()
     done()
   })
 })
+
